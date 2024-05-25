@@ -7,7 +7,8 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>BIENVENIDO A AEULA</h1>
+    <h1>BIENVENIDO A ÆULA</h1>
+    <div class="LoginWrapper">
     <form method="POST" action="">
         {% csrf_token %}
         <h3>INGRESE USUARIO</h3>
@@ -29,6 +30,7 @@
           <input type="submit" value="Login" />
         </div>
       </form>
+      <a href="#">Olvide mi Contraseña</a>
     </div>
 </body>
 </html>
