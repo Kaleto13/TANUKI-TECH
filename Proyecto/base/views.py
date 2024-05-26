@@ -5,3 +5,6 @@ from django.contrib.auth.models import User
 
 def home(request):
     return render(request, 'home.html')
+
+def createacount(request):
+    return render(request, 'newacount.html')

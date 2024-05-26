@@ -1,38 +1,38 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Nueva cuenta</title>
 </head>
 <body>
-    <h1>BIENVENIDO A ÆULA</h1>
-    <div class="LoginWrapper">
     <form method="POST" action="">
         {% csrf_token %}
-        <h3>INGRESE USUARIO</h3>
+        <h3>CUENTA NUEVA</h3>
         <div class="input-box">
           <input
             type="text"
             name="username"
-            placeholder=" Ingrese Usuario"
+            placeholder=" Ingrese Nombre de Usuario"
           />
         </div>
         <div class="input-box">
           <input
-            type="password"
-            name="password"
-            placeholder=" Ingrese Contraseña"
+            type="text"
+            name="email"
+            placeholder=" Ingrese Correo"
           />
         </div>
+        <div class="input-box">
+            <input
+              type="password"
+              name="password"
+              placeholder="Ingrese contraseña"
+            />
+          </div>
         <div class="input-button">
           <input type="submit" value="Login" />
         </div>
       </form>
-      <a href="#">Olvide mi Contraseña</a>
-      <p>¿Eres nuevo? <a href="{% url 'createacount' %}">Crear cuenta nueva</a></p>
-      
-    </div>
 </body>
 </html>
