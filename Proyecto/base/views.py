@@ -8,3 +8,6 @@ def home(request):
 
 def createacount(request):
     return render(request, 'newacount.html')
+
+def cambiarcontraseña(request):
+    return render(request, 'newpassword.html')
