@@ -11,3 +11,6 @@ def createacount(request):
 
 def cambiarcontraseña(request):
     return render(request, 'newpassword.html')
+
+def config(request):
+    return render(request, 'config.html')
