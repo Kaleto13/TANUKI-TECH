@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig'
 ]
 
+AUTH_USER_MODEL = 'base.CustomUser'
+LOGIN_REDIRECT_URL = '/'  # Redirect to home page after login, adjust as needed
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -108,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 
@@ -125,3 +128,13 @@ STATICFILES_DIR = BASE_DIR / "static"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Replace with your broker URL
+
+CELERY_BEAT_SCHEDULE = {
+    'check_deletion_every_minute': {
+        'task': 'base.tasks.check_deletion',  # Replace with your actual task path
+        'schedule': 60.0,  # Run every 60 seconds (1 minute)
+    },
+}

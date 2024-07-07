@@ -1,0 +1,30 @@
+<!-- base/templates/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <form method="post" action="{% url 'profile' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Profile</button>
+    </form>
+
+    <br>
+
+    <!-- Button for immediate account deletion -->
+    <form method="post" action="{% url 'delete_account' %}">
+        {% csrf_token %}
+        <button type="submit">Delete Account Permanently</button>
+    </form>
+
+    <!-- Button for scheduling account deletion in 1 minute -->
+    <form method="post" action="{% url 'schedule_deletion' %}">
+        {% csrf_token %}
+        <button type="submit">Schedule Account Deletion in 1 Minute</button>
+    </form>
+</body>
+</html>

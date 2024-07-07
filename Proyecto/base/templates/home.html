@@ -1,39 +1,26 @@
-{% load static %}
+<!-- templates/home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Login</title>
+    <title>Home</title>
 </head>
 <body>
-    <h1>BIENVENIDO A ÆULA</h1>
-    <div class="LoginWrapper">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <h3>INGRESE USUARIO</h3>
-        <div class="input-box">
-          <input
-            type="text"
-            name="username"
-            placeholder=" Ingrese Usuario"
-          />
-        </div>
-        <div class="input-box">
-          <input
-            type="password"
-            name="password"
-            placeholder=" Ingrese Contraseña"
-          />
-        </div>
-        <div class="input-button">
-          <input type="submit" value="Login" />
-        </div>
-      </form>
-      <a href="{% url 'cambiarcontraseña' %}">Olvide mi Contraseña</a>
-      <p>¿Eres nuevo? <a href="{% url 'createacount' %}">Crear cuenta nueva</a></p>
-      
-    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'setup_user_data' %}">Create Account</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                
+                <li><a href="{% url 'profile' %}">perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to the Home Page</h1>
+        <!-- Add your content here -->
+    </main>
 </body>
 </html>
