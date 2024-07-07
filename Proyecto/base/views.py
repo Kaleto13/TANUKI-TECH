@@ -1,7 +1,6 @@
 # base/views.py
 
 from .forms import UserDataForm
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -10,8 +9,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.contrib.auth.views import LoginView
-
-
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import AuthenticationForm
+from .models import CustomUser
+# base/views.py
+from django.shortcuts import render
 def home(request):
     return render(request, 'home.html')
 
@@ -26,10 +28,7 @@ def config(request):
 
 
 
-# base/views.py
-from django.shortcuts import render
-from .forms import UserDataForm
-from .models import CustomUser 
+
 
 
 
@@ -81,4 +80,27 @@ def schedule_deletion(request):
         return redirect('home')  # Redirect to home or another page after scheduling
     return render(request, 'profile.html')
 
-.S
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}.")
+                return redirect('profile')
+            else:
+                messages.error(request, "Invalid username or password.")
+        else:
+            messages.error(request, "Invalid username or password.")
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
+
+# Logout view
+def logout_view(request):
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect('home')

@@ -41,8 +41,8 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'base.CustomUser'
-LOGIN_REDIRECT_URL = '/'  # Redirect to home page after login, adjust as needed
-
+LOGIN_URL = 'login'  # Use the name of your login URL pattern
+LOGIN_REDIRECT_URL = 'profile'  # Redirect to profile page after login
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
