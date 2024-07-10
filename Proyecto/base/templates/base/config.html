@@ -53,6 +53,11 @@
                         <li class="nav-item">
                               <a class="nav-link" href="{% url 'home' %}">Volver</a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'config' %}">
+                            <i class="bi bi-gear-fill"></i>
+                          </a>
+                        </li>
                       {% else %}
                         <li class="nav-item">
                           <a class="nav-link" href="{% url 'setup_user_data' %}">Crear Cuenta</a>
@@ -62,6 +67,11 @@
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="{% url 'home' %}">Volver</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'config' %}">
+                            <i class="bi bi-gear-fill"></i>
+                          </a>
                         </li>
                       {% endif %}
                     </ul>
