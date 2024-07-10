@@ -71,8 +71,11 @@ def profile(request):
     else:
         form = UserDataForm(instance=request.user)
         print(form)
+
+    title = "Perfil de Usuario"
     context = {
         'form': form,
+        'title': title,
     }
     return render(request, 'base/profile.html', context)
 
