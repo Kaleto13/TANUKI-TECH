@@ -61,12 +61,13 @@ def setup_user_data(request):
 def profile(request):
     if request.method == 'POST':
         form = UserDataForm(request.POST, instance=request.user)
+        print(form)
         if form.is_valid():
             form.save()
             return redirect('profile')  # Redirect back to profile view after update
     else:
         form = UserDataForm(instance=request.user)
-    
+        print(form)
     context = {
         'form': form,
     }
