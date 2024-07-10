@@ -1,26 +1,57 @@
-<!-- templates/home.html -->
+<!-- templates/base/home.html -->
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>{{title}} | Æula</title>
+    <link rel="stylesheet" href="{% static 'base/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900">
 </head>
+
 <body>
+    <script src="{% static 'base/js/bootstrap.js' %}"></script>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'setup_user_data' %}">Create Account</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                
-                <li><a href="{% url 'profile' %}">perfil</a></li>
-            </ul>
+
+        <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+
+            <div class="container-fluid">
+
+                <a id="btnlogo" class="navbar-brand" href="{% url 'home' %}">Æula</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'setup_user_data' %}">Crear Cuenta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Perfil</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
         </nav>
+
+        <div class="row" id="cuerpo">
+            
+        </div>
+
+
+       
     </header>
-    <main>
-        <h1>Welcome to the Home Page</h1>
-        <!-- Add your content here -->
-    </main>
+
 </body>
 </html>

@@ -15,7 +15,12 @@ from .models import CustomUser
 # base/views.py
 from django.shortcuts import render
 def home(request):
-    return render(request, 'base/home.html')
+    title = "Home"
+    datos = {
+        'title': title,
+    }
+
+    return render(request, 'base/home.html', datos)
 
 def createacount(request):
     return render(request, 'base/newacount.html')
@@ -33,7 +38,8 @@ def config(request):
 
 
 def success_page(request):
-    return render(request, 'base/success_page.html')  # Replace 'success_page.html' with your actual template name
+    return render(request, 'base/success_page.html') 
+
 def setup_user_data(request):
     if request.method == 'POST':
         form = UserDataForm(request.POST)
@@ -48,6 +54,7 @@ def setup_user_data(request):
         form = UserDataForm()
     
     return render(request, 'base/user_data_form.html', {'form': form})
+
 @login_required
 def profile(request):
     if request.method == 'POST':
@@ -81,6 +88,7 @@ def schedule_deletion(request):
     return render(request, 'base/profile.html')
 
 def login_view(request):
+    title = "Login"
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -97,7 +105,7 @@ def login_view(request):
             messages.error(request, "Invalid username or password.")
     else:
         form = AuthenticationForm()
-    return render(request, 'base/login.html', {'form': form})
+    return render(request, 'base/login.html', {'form': form, 'title': title})
 
 # Logout view
 def logout_view(request):
