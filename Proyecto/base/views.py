@@ -15,16 +15,16 @@ from .models import CustomUser
 # base/views.py
 from django.shortcuts import render
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'base/home.html')
 
 def createacount(request):
-    return render(request, 'newacount.html')
+    return render(request, 'base/newacount.html')
 
 def cambiarcontraseña(request):
-    return render(request, 'newpassword.html')
+    return render(request, 'base/newpassword.html')
 
 def config(request):
-    return render(request, 'config.html')
+    return render(request, 'base/config.html')
 
 
 
@@ -33,7 +33,7 @@ def config(request):
 
 
 def success_page(request):
-    return render(request, 'success_page.html')  # Replace 'success_page.html' with your actual template name
+    return render(request, 'base/success_page.html')  # Replace 'success_page.html' with your actual template name
 def setup_user_data(request):
     if request.method == 'POST':
         form = UserDataForm(request.POST)
@@ -47,7 +47,7 @@ def setup_user_data(request):
     else:
         form = UserDataForm()
     
-    return render(request, 'user_data_form.html', {'form': form})
+    return render(request, 'base/user_data_form.html', {'form': form})
 @login_required
 def profile(request):
     if request.method == 'POST':
@@ -61,7 +61,7 @@ def profile(request):
     context = {
         'form': form,
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'base/profile.html', context)
 
 @login_required
 def delete_account(request):
@@ -69,7 +69,7 @@ def delete_account(request):
         user = request.user
         user.delete()
         return redirect('home')  # Redirect to home or another page after deletion
-    return render(request, 'profile.html')
+    return render(request, 'base/profile.html')
 
 @login_required
 def schedule_deletion(request):
@@ -78,7 +78,7 @@ def schedule_deletion(request):
         user.deletion_date = timezone.now() + timezone.timedelta(minutes=1)
         user.save()
         return redirect('home')  # Redirect to home or another page after scheduling
-    return render(request, 'profile.html')
+    return render(request, 'base/profile.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -97,7 +97,7 @@ def login_view(request):
             messages.error(request, "Invalid username or password.")
     else:
         form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'base/login.html', {'form': form})
 
 # Logout view
 def logout_view(request):
