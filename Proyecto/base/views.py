@@ -38,7 +38,8 @@ def config(request):
 
 
 def success_page(request):
-    return render(request, 'base/success_page.html') 
+    title = "Cuenta creada"
+    return render(request, 'base/success_page.html', { 'title': title, }) 
 
 def setup_user_data(request):
     title = "Crear cuenta"
