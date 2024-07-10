@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{title}} | Æula</title>
+    <title>Login | Æula</title>
     <link rel="stylesheet" href="{% static 'base/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'base/styles.css' %}">
     <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900">
@@ -29,6 +29,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'setup_user_data' %}">Crear Cuenta</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}">Volver</a>
                         </li>
