@@ -77,6 +77,8 @@ def delete_account(request):
     if request.method == 'POST':
         user = request.user
         user.delete()
+        print(user)
+        print(user, "deleted")
         return redirect('home')  # Redirect to home or another page after deletion
     return render(request, 'base/profile.html')
 
@@ -85,6 +87,7 @@ def schedule_deletion(request):
     if request.method == 'POST':
         user = request.user
         user.deletion_date = timezone.now() + timezone.timedelta(minutes=1)
+        print(user.deletion_date)
         user.save()
         return redirect('home')  # Redirect to home or another page after scheduling
     return render(request, 'base/profile.html')
