@@ -1,9 +1,58 @@
 <!-- user_data_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}} | Æula</title>
+    <link rel="stylesheet" href="{% static 'base/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900">
+</head>
 
-<!-- user_data_form.html -->
+<body id="base">
+    <script src="{% static 'base/js/bootstrap.js' %}"></script>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+    <header>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+
+            <div class="container-fluid">
+
+                <a id="btnlogo" class="navbar-brand" href="{% url 'home' %}">Æula</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Volver</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+       
+    </header>
+
+    <div class="row" id="cuerpo-login">
+        <div class="col-3"></div>
+
+        <div class="col-6">
+            <h1>Creación de cuenta:</h1>
+            <form method="post" id="register-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-secondary" id="login-btn">Registrarse</button>
+            </form>
+        </div>
+
+        <div class="col-3"></div>
+        
+    </div>
+
+
+</body>
+</html>
