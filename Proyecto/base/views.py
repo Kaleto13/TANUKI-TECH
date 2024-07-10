@@ -23,7 +23,9 @@ def home(request):
     return render(request, 'base/home.html', datos)
 
 def createacount(request):
-    return render(request, 'base/newacount.html')
+    title = "Registrarse"
+
+    return render(request, 'base/newacount.html', { 'title': title, })
 
 def cambiarcontraseña(request):
     return render(request, 'base/newpassword.html')
