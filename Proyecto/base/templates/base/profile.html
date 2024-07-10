@@ -62,10 +62,17 @@
         </div>
 
         <div class="col-3 text-end">
+            <form method="post" action="{% url 'cambiarcontraseña' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-secondary" id="login-btn">Cambiar Contraseña</button>
+            </form>
+
+            <br>
+
             <!-- Button for immediate account deletion -->
             <form method="post" action="{% url 'delete_account' %}">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-secondary" id="login-btn">Eliminar Cuenta (Permanente)</button>
+                <button type="submit" class="btn btn-secondary">Eliminar Cuenta (Permanente)</button>
             </form>
 
             <br>

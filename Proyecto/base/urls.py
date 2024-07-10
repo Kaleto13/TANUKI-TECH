@@ -5,8 +5,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns=[
     path('', views.home, name="home"),
-    path('createacount', views.createacount, name="createacount"),
-    path('cambiarcontraseña', views.cambiarcontraseña, name="cambiarcontraseña"),
+    path('createacount/', views.createacount, name="createacount"),
+    path('cambiarcontraseña/', views.cambiarcontraseña, name="cambiarcontraseña"),
     path('config/', views.config, name="config"),\
     path('setup/', views.setup_user_data, name='setup_user_data'),
     path('success/', views.success_page, name='success_page'),

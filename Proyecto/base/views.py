@@ -23,7 +23,9 @@ def home(request):
     return render(request, 'base/home.html', datos)
 
 def createacount(request):
-    return render(request, 'base/newacount.html')
+    title = "Registrarse"
+
+    return render(request, 'base/newacount.html', { 'title': title, })
 
 def cambiarcontraseña(request):
     return render(request, 'base/newpassword.html')
@@ -69,8 +71,11 @@ def profile(request):
     else:
         form = UserDataForm(instance=request.user)
         print(form)
+
+    title = "Perfil de Usuario"
     context = {
         'form': form,
+        'title': title,
     }
     return render(request, 'base/profile.html', context)
 

@@ -43,6 +43,10 @@
     padding-top: 20px;
 }
 
+#input-nc{
+    padding-bottom: 20px;
+}
+
 #foot{
     height: 150px;
     background-color: darkred;
