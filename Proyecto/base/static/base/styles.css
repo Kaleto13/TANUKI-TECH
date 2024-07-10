@@ -1,0 +1,62 @@
+#base{
+    background-color: rgb(233, 233, 233);
+}
+
+#btnlogo{
+    font-family: Kanit, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    padding-left: 25px;
+}
+
+#red{
+    height: 8px;
+    background-color: darkred;
+}
+
+#cuerpo{
+    padding-top: 25px;
+}
+
+#bv{
+    font-family: Concert One, sans-serif;
+    margin-bottom: 20px;
+}
+
+#cuerpo-login{
+    padding-top: 70px;
+}
+
+#login-form{
+    padding-top: 25px;
+}
+
+#login-btn{
+    margin-top: 20px;
+}
+
+#register-form{
+    padding-top: 20px;
+}
+
+#foot{
+    height: 150px;
+    background-color: darkred;
+}
+
+#info{
+    padding-top: 25px;
+    padding-left: 80px;
+    color: white;
+}
+
+#tanuki{
+    padding-top: 35px;
+    padding-right: 20px;
+    color: white;
+}
+
+#github{
+    font-size: 3rem;
+    color: white;
+}
