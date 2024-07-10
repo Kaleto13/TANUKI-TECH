@@ -41,6 +41,8 @@ def success_page(request):
     return render(request, 'base/success_page.html') 
 
 def setup_user_data(request):
+    title = "Crear cuenta"
+
     if request.method == 'POST':
         form = UserDataForm(request.POST)
         if form.is_valid():
@@ -53,7 +55,7 @@ def setup_user_data(request):
     else:
         form = UserDataForm()
     
-    return render(request, 'base/user_data_form.html', {'form': form})
+    return render(request, 'base/user_data_form.html', {'form': form, 'title': title})
 
 @login_required
 def profile(request):

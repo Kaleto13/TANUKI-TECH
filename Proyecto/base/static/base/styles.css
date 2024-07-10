@@ -9,8 +9,17 @@
     padding-left: 25px;
 }
 
+#red{
+    height: 8px;
+    background-color: darkred;
+}
+
 #cuerpo{
     padding-top: 25px;
+}
+
+#bv{
+    font-family: Concert One, sans-serif;
 }
 
 #cuerpo-login{
@@ -27,4 +36,26 @@
 
 #register-form{
     padding-top: 20px;
+}
+
+#foot{
+    height: 150px;
+    background-color: darkred;
+}
+
+#info{
+    padding-top: 25px;
+    padding-left: 80px;
+    color: white;
+}
+
+#tanuki{
+    padding-top: 35px;
+    padding-right: 20px;
+    color: white;
+}
+
+#github{
+    font-size: 3rem;
+    color: white;
 }
