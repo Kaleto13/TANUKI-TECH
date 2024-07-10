@@ -11,7 +11,7 @@ urlpatterns=[
     path('setup/', views.setup_user_data, name='setup_user_data'),
     path('success/', views.success_page, name='success_page'),
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),  # Add this line
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Add this line
+    path('logout/', auth_views.LogoutView.as_view(template_name='base/logout.html'), name='logout'),  # Add this line
     
     path('delete-account/', views.delete_account, name='delete_account'),
     path('schedule-deletion/', views.schedule_deletion, name='schedule_deletion'),

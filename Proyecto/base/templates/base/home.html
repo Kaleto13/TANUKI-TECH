@@ -8,8 +8,11 @@
     <title>{{title}} | Æula</title>
     <link rel="stylesheet" href="{% static 'base/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'base/styles.css' %}">
-    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900">
-    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Concert+One">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 
@@ -30,18 +33,21 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'setup_user_data' %}">Crear Cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' %}">Perfil</a>
-                        </li>
+                        {% if request.user.is_authenticated == True %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile' %}">Perfil</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'setup_user_data' %}">Crear Cuenta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
 
@@ -61,7 +67,7 @@
             <h1 id="bv">Bienvenid@s!</h1>
             <div class="card text-bg-light mb-3" style="max-width: 100%; height: 500px; padding-top: 5px;">
                 <div class="card-body">
-                  <h2 class="card-title px-4">Información</h2>
+                  <h2 class="card-title px-4" id="subtitle">Información</h2>
                   <p class="card-text px-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium fugiat necessitatibus nesciunt distinctio quidem quis excepturi, velit dolor dicta laudantium, quisquam saepe impedit quibusdam voluptas placeat eos ab eum doloribus.
                   Nisi ex necessitatibus tempore reprehenderit, eum nihil maiores voluptatum magnam iusto placeat quidem culpa unde asperiores sequi quasi enim sit facilis vero, assumenda, obcaecati odio. Pariatur possimus laborum veniam accusantium?
                   Dolor itaque optio illo placeat odio. Odit fugiat culpa quidem eaque blanditiis placeat fuga voluptate accusamus, dolorem quia officia labore suscipit dolor nesciunt velit ipsum neque tempore recusandae at! Totam.
@@ -79,8 +85,8 @@
 
     <footer>
         <div class="row fixed-bottom" id="foot">
-            <div class="col-4" id="info">
-                <h3>Información de contacto:</h3>
+            <div class="col-6" id="info">
+                <h3 id="subtitle">Información de contacto:</h3>
                 <p>
                     +56 32 xxx xxxx <br>
                     +56 9 xxxx xxxx <br>
@@ -88,11 +94,7 @@
                 </p>
             </div>
 
-            <div class="col-4">
-                <!-- Por si se quiere agregar algo extra -->
-            </div>
-
-            <div class="col-4 text-end">
+            <div class="col-6 text-end">
                 <h3 id="tanuki">
                     Tanuki Tech
                     <br>

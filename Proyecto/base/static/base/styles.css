@@ -23,6 +23,10 @@
     margin-bottom: 20px;
 }
 
+#subtitle{
+    font-family: Amaranth, sans-serif;
+}
+
 #cuerpo-login{
     padding-top: 70px;
 }
@@ -45,15 +49,16 @@
 }
 
 #info{
-    padding-top: 25px;
+    padding-top: 18px;
     padding-left: 80px;
     color: white;
 }
 
 #tanuki{
-    padding-top: 35px;
+    padding-top: 30px;
     padding-right: 20px;
     color: white;
+    font-family: Kanit, sans-serif;
 }
 
 #github{

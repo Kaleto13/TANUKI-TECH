@@ -38,7 +38,8 @@ def config(request):
 
 
 def success_page(request):
-    return render(request, 'base/success_page.html') 
+    title = "Cuenta creada"
+    return render(request, 'base/success_page.html', { 'title': title, }) 
 
 def setup_user_data(request):
     title = "Crear cuenta"
@@ -94,6 +95,8 @@ def schedule_deletion(request):
     return render(request, 'base/profile.html')
 
 def login_view(request):
+    title = "Login"
+
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -110,7 +113,7 @@ def login_view(request):
             messages.error(request, "Invalid username or password.")
     else:
         form = AuthenticationForm()
-    return render(request, 'base/login.html', {'form': form, 'title': "Login",})
+    return render(request, 'base/login.html', {'form': form, 'title': title,})
 
 # Logout view
 def logout_view(request):
