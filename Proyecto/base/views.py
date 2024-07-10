@@ -62,12 +62,13 @@ def setup_user_data(request):
 def profile(request):
     if request.method == 'POST':
         form = UserDataForm(request.POST, instance=request.user)
+        print(form)
         if form.is_valid():
             form.save()
             return redirect('profile')  # Redirect back to profile view after update
     else:
         form = UserDataForm(instance=request.user)
-    
+        print(form)
     context = {
         'form': form,
     }
@@ -78,6 +79,8 @@ def delete_account(request):
     if request.method == 'POST':
         user = request.user
         user.delete()
+        print(user)
+        print(user, "deleted")
         return redirect('home')  # Redirect to home or another page after deletion
     return render(request, 'base/profile.html')
 
@@ -86,6 +89,7 @@ def schedule_deletion(request):
     if request.method == 'POST':
         user = request.user
         user.deletion_date = timezone.now() + timezone.timedelta(minutes=1)
+        print(user.deletion_date)
         user.save()
         return redirect('home')  # Redirect to home or another page after scheduling
     return render(request, 'base/profile.html')

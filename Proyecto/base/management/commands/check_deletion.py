@@ -9,5 +9,13 @@ class Command(BaseCommand):
         now = timezone.now()
         users_to_delete = CustomUser.objects.filter(deletion_date__lte=now)
         for user in users_to_delete:
+            if user.is_staff:
+                print("Estudiante")
+            else:
+                print("Profesor")
+            print(user.deletion_date)
+
             user.delete()
             self.stdout.write(self.style.SUCCESS(f"Deleted user: {user.username}"))
+        print("do you wish to reactivate this account?")
+            
